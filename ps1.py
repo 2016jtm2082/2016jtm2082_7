@@ -26,18 +26,14 @@ for word,freq in lis:
 
 #permution of each word in string
 
+def perms(s):        
+	    if(len(s)==1): 
+		return [s]
+	    result=[]
+	    for i,v in enumerate(s):
+		result += [v+p for p in perms(s[:i]+s[i+1:])]
+	    return result
 
-def permute2(s):
-    res = []
-    if len(s) == 1:
-        res = [s]
-    else:
-        for i, c in enumerate(s):
-            for perm in permute2(s[:i] + s[i+1:]):
-                res += res
 
-    return res
+	print('\n'.join(perms(word))
 
-s = "abc";
-permute2(s);
-print "The next permutation:", s
